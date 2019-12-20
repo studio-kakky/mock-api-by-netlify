@@ -1,7 +1,7 @@
 const endpoints = require('./endpoints/endpoints-list.js');
 
 exports.handler = async (events) => {
-  const path = events.path.replace(/^\/index/, '');
+  const path = events.path.replace(/^\/api/, '');
   const endpoint = endpoints.find(v => v.url === path);
 
   if (!endpoint) {
