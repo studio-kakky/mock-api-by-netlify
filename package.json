@@ -1,0 +1,19 @@
+{
+  "name": "mock-api-by-netlify",
+  "version": "1.0.0",
+  "description": "Netlify使ったモックの検証",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/studio-kakky/mock-api-by-netlify.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/studio-kakky/mock-api-by-netlify/issues"
+  },
+  "homepage": "https://github.com/studio-kakky/mock-api-by-netlify#readme"
+}
