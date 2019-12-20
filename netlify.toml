@@ -6,6 +6,6 @@
   port = '8000'
 
 [[redirects]]
-  from = '/hoge/*'
-  to = '/index.html'
+  from = '/api/*'
+  to = '/.netlify/functions/index'
   status = 200
