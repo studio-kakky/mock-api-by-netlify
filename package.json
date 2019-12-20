@@ -4,7 +4,8 @@
   "description": "Netlify使ったモックの検証",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "apimock": "cd apimock && npm run start"
   },
   "repository": {
     "type": "git",
