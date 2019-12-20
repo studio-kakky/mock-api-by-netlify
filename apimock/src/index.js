@@ -1,4 +1,4 @@
-const endpoints = require('endpoints-list');
+const endpoints = require('./endpoints/endpoints-list');
 const fs = require('fs');
 
 exports.handler = async (events) => {
