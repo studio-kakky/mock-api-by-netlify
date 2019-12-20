@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "apimock": "cd apimock && npm run start"
+    "dev": "netlify dev"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/studio-kakky/mock-api-by-netlify/issues"
   },
-  "homepage": "https://github.com/studio-kakky/mock-api-by-netlify#readme"
+  "homepage": "https://github.com/studio-kakky/mock-api-by-netlify#readme",
+  "dependencies": {
+    "netlify-cli": "^2.25.0"
+  }
 }

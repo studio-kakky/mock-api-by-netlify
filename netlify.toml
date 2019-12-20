@@ -1,0 +1,11 @@
+[build]
+  functions = 'apimock/src'
+  publish = 'app/'
+
+[dev]
+  port = '8000'
+
+[[redirects]]
+  from = '/hoge/*'
+  to = '/index.html'
+  status = 200
