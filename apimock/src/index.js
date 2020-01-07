@@ -10,7 +10,7 @@ exports.handler = async (events) => {
   if (!!targetPath) {
     return  {
       statusCode: 404,
-      body: `NOT Found \n${events.path} \n${JSON.stringify(events)}`
+      body: `NOT TargetPath Found \n${events.path} \n${JSON.stringify(events)}`
     }
   }
 
