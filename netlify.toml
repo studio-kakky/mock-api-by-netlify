@@ -3,4 +3,6 @@
   command = "npx netlify-lambda build apimock/src/"
   publish = "app"
 
-
+[[redirects]]
+  from="/api/*"
+  to=".netlify/functions/index"
