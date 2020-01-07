@@ -8,7 +8,7 @@ const makeRequest = (events, targetPath) => {
 
   return {
     params: targetPath.test(pathWithParams) || {},
-    body: JSON.parse(events.body),
+    body: events.body,
     query: events.queryStringParameters || {},
     headers: events.headers
   }
