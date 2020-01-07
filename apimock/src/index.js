@@ -5,7 +5,16 @@ const pathList = require('../generated/endpoint-paths');
 
 exports.handler = async (events) => {
   const paths = pathList.map(v => new Path(v));
-  const endpointKey = `${events.httpMethod}_${events.path.replace(/^\/api/, '')}`;
+  const targetPath = paths.find(v => v.test(event.path.replace(/^\/api/, '')));
+
+  if (!!targetPath) {
+    return  {
+      statusCode: 404,
+      body: `NOT Found \n${events.path} \n${JSON.stringify(events)}`
+    }
+  }
+
+  const endpointKey = `${events.httpMethod}_${targetPath.path}`;
 
   if (!endpointsMap.has(endpointKey)) {
     return {
