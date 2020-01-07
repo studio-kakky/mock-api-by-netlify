@@ -7,7 +7,7 @@ exports.handler = async (events) => {
   const paths = pathList.map(v => new Path(v));
   const targetPath = paths.find(v => v.test(events.path.replace(/^\/api/, '')));
 
-  if (!!targetPath) {
+  if (!targetPath) {
     return  {
       statusCode: 404,
       body: `NOT TargetPath Found \n${events.path} \n${JSON.stringify(events)}`
@@ -25,6 +25,6 @@ exports.handler = async (events) => {
 
   return {
     statusCode: 200,
-    body: endpointsMap.get(endpointKey)(events),
+    body: JSON.stringify(endpointsMap.get(endpointKey)(events)),
   }
 };
