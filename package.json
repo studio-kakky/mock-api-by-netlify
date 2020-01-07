@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/studio-kakky/mock-api-by-netlify#readme",
   "dependencies": {
-    "netlify-cli": "^2.25.0",
     "netlify-lambda": "^1.6.3"
+  },
+  "devDependencies": {
+    "netlify-cli": "^2.20.0"
   }
 }

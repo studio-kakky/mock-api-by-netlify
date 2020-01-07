@@ -1,11 +1,6 @@
 [build]
-  functions = 'apimock/src'
-  publish = 'app/'
+  functions = "apimock/dist"
+  command = "npx netlify-lambda build apimock/src/"
+  publish = "app"
 
-[dev]
-  port = '8000'
 
-[[redirects]]
-  from = '/api/*'
-  to = '/.netlify/functions/index'
-  status = 200
