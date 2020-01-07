@@ -3,7 +3,7 @@
     method: GET
   response:
     type: js
-    file: src/some/get/index.js
+    file: src/apis/some/get/index.js
 
 - request:
     url: /v1/foo/:id
