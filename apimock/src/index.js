@@ -5,7 +5,7 @@ const pathList = require('../generated/endpoint-paths');
 
 exports.handler = async (events) => {
   const paths = pathList.map(v => new Path(v));
-  const targetPath = paths.find(v => v.test(event.path.replace(/^\/api/, '')));
+  const targetPath = paths.find(v => v.test(events.path.replace(/^\/api/, '')));
 
   if (!!targetPath) {
     return  {
