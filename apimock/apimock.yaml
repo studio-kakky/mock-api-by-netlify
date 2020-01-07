@@ -11,3 +11,10 @@
   response:
     type: js
     file: src/apis/foo/get/index.js
+
+- request:
+    url: /v1/hoge
+    method: GET
+  response:
+    type: js
+    file: src/apis/some/get/index.js
