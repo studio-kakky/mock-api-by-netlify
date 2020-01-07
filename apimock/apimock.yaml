@@ -1,0 +1,13 @@
+- request:
+    url: /v1/some/:id
+    method: GET
+  response:
+    type: js
+    file: src/some/get/index.js
+
+- request:
+    url: /v1/foo/:id
+    method: GET
+  response:
+    type: js
+    file: src/apis/foo/get/index.js
