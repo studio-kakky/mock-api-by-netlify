@@ -1,0 +1,5 @@
+# generated file
+./generated/*
+
+# bundle
+dist

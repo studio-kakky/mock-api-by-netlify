@@ -12,4 +12,4 @@ if (!fs.existsSync(distDir)) {
   fs.mkdirSync(distDir);
 }
 
-fs.writeFileSync(`${distDir}/paths.js`, fileContent);
+fs.writeFileSync(`${distDir}/endpoint-paths.js`, fileContent);

@@ -1,1 +1,0 @@
-exports.ids=[1],exports.modules=[,function(o,s,e){const t=e(2);o.exports=()=>t},function(o){o.exports=JSON.parse('{"hey":"ho"}')}];

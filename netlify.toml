@@ -1,6 +1,6 @@
 [build]
   functions = "apimock/dist"
-  command = "npx netlify-lambda build apimock/src/"
+  command = "npm run build:apimock"
   publish = "app"
 
 [[redirects]]
