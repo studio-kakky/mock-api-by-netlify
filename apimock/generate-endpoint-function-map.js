@@ -9,7 +9,7 @@ const endpoints = YAML.parse(apimockConfig);
 const endpointsMapSrc = endpoints
   .filter(v => v.response.type === 'js')
   .map(v => {
-    return `  ['${v.request.method}_${v.request.url}', require.ensure([], ()=> require('../${v.response.file}'))]`
+    return `  ['${v.request.method}_${v.request.url}', require('../${v.response.file}')]`
   });
 
 const fileContent = `module.exports = new Map([
