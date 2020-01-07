@@ -5,7 +5,7 @@ const pathList = require('../generated/endpoint-paths');
 
 exports.handler = async (events) => {
   const paths = pathList.map(v => new Path(v));
-  const endpointKey = `${events.httpMethod}_${events.path.replace('^/api', '')}`;
+  const endpointKey = `${events.httpMethod}_${events.path.replace(/^\/api/, '')}`;
 
   if (!endpointsMap.has(endpointKey)) {
     return {
