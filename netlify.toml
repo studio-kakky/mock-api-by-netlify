@@ -2,8 +2,3 @@
   functions = "apimock/dist/"
   command = "build:apimock"
   publish = "app"
-
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/index"
-  status = 200

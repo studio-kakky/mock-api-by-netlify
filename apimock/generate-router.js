@@ -4,6 +4,8 @@ const YAML = require('yaml');
 const apimockConfig = fs.readFileSync('./apimock.yaml', 'utf8');
 const endpoints = YAML.parse(apimockConfig);
 
+const outDir = 'generated-routers'
+
 const makeMethodFunctionMap = (path) => {
   const targetEndpoints = endpoints
     .filter(v => v.request.url === path);
@@ -24,14 +26,14 @@ const routerPaths = endpoints
 
 const template = fs.readFileSync('./router-template.js', 'utf8');
 
-if(!fs.existsSync('./generated-routers')) {
-  fs.mkdirSync('./generated-routers');
+if(!fs.existsSync(outDir)) {
+  fs.mkdirSync(outDir);
 }
 
 routerPaths.forEach(v => {
   const methodFunctionMap = makeMethodFunctionMap(v);
   const pathPattern = `const pathPattern = '${v}';\n`
-  fs.writeFileSync(`./generated-routers/${v.replace(/\//g,'__')}.js`, `${pathPattern}${methodFunctionMap}${template}`)
+  fs.writeFileSync(`${outDir}/${v.replace(/\//g,'__')}.js`, `${pathPattern}${methodFunctionMap}${template}`)
 });
 
 
