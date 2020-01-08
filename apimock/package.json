@@ -5,9 +5,7 @@
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "generate": "run-s generate:*",
-    "generate:endpoint-paths": "node ./generate-endpoint-paths",
-    "generate:endpoint-function-map": "node ./generate-endpoint-function-map"
+    "generate-router": "node ./generate-router"
   },
   "author": "",
   "license": "ISC",

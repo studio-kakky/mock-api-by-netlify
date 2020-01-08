@@ -6,6 +6,13 @@
     file: src/apis/some/get/index.js
 
 - request:
+    url: /v1/some/hoge
+    method: GET
+  response:
+    type: js
+    file: src/apis/some/get/index.js
+
+- request:
     url: /v1/foo/:id
     method: GET
   response:

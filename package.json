@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "cd apimock && npm i",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:apimock": "cd apimock && npm i && npm run generate && cd - && npx netlify-lambda build ./apimock/src/"
+    "build:apimock": "cd apimock && npm i && npm run generate-router && cd - && npx netlify-lambda build ./apimock/src/"
   },
   "repository": {
     "type": "git",

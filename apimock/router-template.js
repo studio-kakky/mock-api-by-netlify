@@ -1,8 +1,5 @@
 const { Path } = require('path-parser');
 
-const endpointsMap = require('../generated/endpoints-map');
-const pathList = require('../generated/endpoint-paths');
-
 const makeRequest = (events, targetPath) => {
   const pathWithParams = events.path.replace(/^\/api/, '');
 
@@ -12,7 +9,7 @@ const makeRequest = (events, targetPath) => {
     query: events.queryStringParameters || {},
     headers: events.headers
   }
-}
+};
 
 exports.handler = async (events) => {
   const paths = pathList.map(v => new Path(v));
