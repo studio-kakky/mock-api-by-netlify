@@ -1,4 +1,4 @@
 [build]
   functions = "apimock/dist/"
-  command = "build:apimock"
+  command = "npm run build:apimock"
   publish = "app"
