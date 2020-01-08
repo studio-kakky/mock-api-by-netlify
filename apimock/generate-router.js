@@ -4,52 +4,34 @@ const YAML = require('yaml');
 const apimockConfig = fs.readFileSync('./apimock.yaml', 'utf8');
 const endpoints = YAML.parse(apimockConfig);
 
-const makePathList = (path) => {
+const makeMethodFunctionMap = (path) => {
   const targetEndpoints = endpoints
-    .filter(v => {
-      const pattern = new RegExp(`^\/v1\/${path}`);
-      return pattern.test(v.request.url);
-    })
-    .filter((v,idx,arr) => {
-      return arr.indexOf(v) === idx;
-    })
-    .map(v => `'${v.request.url}'`);
-
-  return `const pathList = [${targetEndpoints.join(',')}];\n`
-};
-
-const makeFunctionMap = (path) => {
-  const targetEndpoints = endpoints
-    .filter(v => {
-      const pattern = new RegExp(`^\/v1\/${path}`);
-      return pattern.test(v.request.url);
-    });
+    .filter(v => v.request.url === path);
 
   const functionMapSrc = targetEndpoints
-    .map(v => `  ['${v.request.method}_${v.request.url}', require('../${v.response.file}')]`)
+    .map(v => `  ['${v.request.method}', require('../${v.response.file}')]`)
 
-  return `const endpointsMap = new Map([
+  return `const methodMap = new Map([
 ${functionMapSrc.join(',\n')}  
 ]);\n`;
 };
 
 const routerPaths = endpoints
-  .filter(v => /^\/v1/.test(v.request.url))
-  .map(v => v.request.url.replace(/^\/v1\/([^\/]*).*/,'$1'))
+  .map(v => v.request.url)
   .filter((v,idx,arr) => {
     return arr.indexOf(v) === idx;
   });
 
 const template = fs.readFileSync('./router-template.js', 'utf8');
 
-if(!fs.existsSync('./generated')) {
-  fs.mkdirSync('./generated');
+if(!fs.existsSync('./generated-routers')) {
+  fs.mkdirSync('./generated-routers');
 }
 
 routerPaths.forEach(v => {
-  const pathList = makePathList(v);
-  const functionMap = makeFunctionMap(v);
-  fs.writeFileSync(`./generated/${v}.js`, `${pathList}${functionMap}${template}`)
+  const methodFunctionMap = makeMethodFunctionMap(v);
+  const pathPattern = `const pathPattern = '${v}';\n`
+  fs.writeFileSync(`./generated-routers/${v.replace(/\//g,'__')}.js`, `${pathPattern}${methodFunctionMap}${template}`)
 });
 
 

@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "cd apimock && npm i",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:apimock": "cd apimock && npm i && npm run generate-router && cd - && npx netlify-lambda build ./apimock/generated/"
+    "build:apimock": "cd apimock && npm i && npm run generate-router && cd - && npx netlify-lambda build ./apimock/dist/"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
     "netlify-lambda": "^1.6.3"
   },
   "devDependencies": {
+    "@netlify/zip-it-and-ship-it": "^0.3.1",
     "netlify-cli": "^2.20.0",
     "npm-run-all": "^4.1.5"
   }

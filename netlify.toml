@@ -1,9 +1,9 @@
 [build]
-  functions = "apimock/dist"
-  command = "npm run build:apimock"
+  functions = "apimock/dist/"
+  command = "build:apimock"
   publish = "app"
 
 [[redirects]]
-  from = "/api/v1/*"
-  to = "/.netlify/functions/:splat"
+  from = "/api/*"
+  to = "/.netlify/functions/index"
   status = 200
