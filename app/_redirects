@@ -1,2 +1,3 @@
 /api/v1/some/hoge /.netlify/functions/__v1__some__hoge 200
+/api/v1/some /.netlify/functions/__v1__some__hoge 200
 /api/v1/some/* /.netlify/functions/__v1__some__id 200
