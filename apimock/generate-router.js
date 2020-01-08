@@ -26,14 +26,17 @@ const routerPaths = endpoints
 
 const template = fs.readFileSync('./router-template.js', 'utf8');
 
-if(!fs.existsSync(outDir)) {
-  fs.mkdirSync(outDir);
+if(fs.existsSync(outDir)) {
+  fs.rmdirSync(outDir, {recursive: true});
 }
+
+fs.mkdirSync(outDir);
 
 routerPaths.forEach(v => {
   const methodFunctionMap = makeMethodFunctionMap(v);
-  const pathPattern = `const pathPattern = '${v}';\n`
-  fs.writeFileSync(`${outDir}/${v.replace(/\//g,'__')}.js`, `${pathPattern}${methodFunctionMap}${template}`)
+  const pathPattern = `const pathPattern = '${v}';\n`;
+  const fileName = v.replace(/:/g,'').replace(/\//g,'__')
+  fs.writeFileSync(`${outDir}/${fileName}.js`, `${pathPattern}${methodFunctionMap}${template}`)
 });
 
 
